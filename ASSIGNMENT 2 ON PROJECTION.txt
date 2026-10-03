@@ -1,0 +1,62 @@
+-- ASSIGNMENT ON PROJECTION:
+
+-- 1. WRITE A QUERY TO DISPLAY THE DETAILS OF FROM THE EMPLOYEE TABLE
+
+
+-- select emp.* from scott.emp;
+
+
+-- 2. WAQTD NAMES OF ALL THE EMPLOYEES
+
+
+-- select ename as name from scott.emp;
+
+
+-- 3. WAQTD NAME AND SALARY GIVEN TO ALL THE EMPLOYEES
+
+
+-- select ename as name,sal as salary from scott.emp;
+
+
+-- 4. WQTD NAME AND COMMISIION GIVEN TO ALL THE EMPLOYEES
+
+
+-- select ename as name,comm from scott.emp;
+
+
+-- 5. WAQTD EMPLOYEE ID AND DEPARTMENT NUMBER OF ALL THE EMPLOYEES
+-- IN EMP TABLE
+
+-- desc scott.emp;
+-- desc scott.dept;
+-- select empno,deptno from scott.emp;
+
+
+-- 6. WAQTD ENAME AND HIREDATE OF ALL THE EMPLOYEES.
+
+
+-- select ename, hireDate from scott.emp;
+-- select ename,To_Char(hiredate,'DD-MM-YYYY') as hireDate from scott.emp;
+
+
+-- 7. WAQTD NAME AND DESIGNATION OF ALL THE EMPLOYEES
+
+
+-- select ename as NAME,job as DESIGNATION from scott.emp;
+
+
+-- 8. WAQTD NAME, JOB AND SALARY GIVEN TO ALL THE EMPLOYEE
+
+
+-- select ename as name,job,sal as salary from scott.emp;
+
+
+-- 9. WAQTD DNAME PRESENT IN DEPARTMENT TABLE.
+
+
+-- select dname from scott.dept;
+
+
+-- 10. WAQTD DNAME AND LOCATION PRESENT IN DEPT TABLE
+
+-- select dname,loc as LOCATION from scott.dept; 

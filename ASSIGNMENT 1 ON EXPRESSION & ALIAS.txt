@@ -1,0 +1,63 @@
+-- ASSIGNMENT ON EXPRESSION & ALIAS
+
+
+-- 1. WAQTD NAME OF THE EMPLOYEE ALONG WITH THEIR ANNUAL SALARY
+
+
+-- select ename,sal*12 as annual_salary from scott.emp;
+
+
+-- 2. WAQTD ENAME AND JOB FOR ALL THE EMPLOYEE WITH THEIR HALF TERM
+-- SALARY
+
+
+-- select ename,sal*6 as half_term_salary from scott.emp;
+
+
+-- 3. WAQTD ALL THE DETAILS OF THE EMPLOYEE ALONG WITH AN ANNUAL
+-- BONUS OF 2000.
+
+
+-- select emp.*,sal*12+2000 from scott.emp;
+
+
+-- 4. WAQTD NAME AND SALARY AND SALARY WITH THE HIKE OF 10%
+
+
+-- select ename,sal,sal*1.10 from scott.emp;
+
+
+-- 5. WAQTD NAME AND SALARY AND SALARY WITH DEDUCTION OF 25%.
+
+
+-- select ename as name,sal,sal*0.75 from scott.emp;
+
+
+-- 6. WAQTD NAME AND SALARY WITH MONTHLY HIKE OF 50.
+
+
+-- select ename as name,sal*1.50 as sal_with_HICK from scott.emp;
+
+
+-- 7. WAQTD NAME AND ANNUAL SALARY WITH DEDUCTION OF 10%.
+
+
+-- select ename as name,sal*12-(sal*12)*0.10 as deduction_salary from scott.emp;
+
+
+-- 8. WAQTD TOTAL SALARY GIVEN TO EACH EMPLOYEE(SAL+COMM).
+
+
+-- select ename,sal*12
+
+
+-- 9. WAQTD DETAILS OF ALL THE EMPLOYEES ALONG WITH ANNUAL SALARY.
+
+
+-- select emp.*,sal*12 as annual_salary from scott.emp;
+
+
+-- 10. WAQTD NAME AND DESIGNATION ALONG WITH 100 PENALTY IN SALARY
+
+
+-- select ename as name,job,sal-100 from scott.emp;

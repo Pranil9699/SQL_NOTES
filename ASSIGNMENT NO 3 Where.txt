@@ -1,0 +1,62 @@
+ASSIGNMENT OF WHERE CLAUSE
+1. WAQTD THE ANNUAL SALARY OF THE EMPLOYEE WHOSE NAME IS SMITH.
+select sal*12 as annual_salary from emp where ename="SMITH";
+Done
+
+2. WAQTD NAME OF THE EMPLOYEES WORKING AS CLERK.
+select ename as name from emp where job="CLERK";
+Done
+
+3. WAQTD SALARY OF THE EMPLOYEES WHO ARE WORKING AS SALESMAN.
+select sal as salary from emp where job="SALESMAN";
+Done
+
+4. WAQTD DETAILS OF THE EMPLOYEE WHOS EARNS MORE THAN 2000.
+select * from emp where sal>2000;
+Done
+
+5. WAQTD DETAILS OF THE EMP WHOSE NAME IS JONES.
+select * from emp where ename='JONES';
+Done
+
+6. WAQTD DETAILS OF THE EMP WHO WAS HIRED AFTER 01-JAN-81.
+select * from emp where hiredate>'1981-12-31';
+Done
+
+7. WAQTD NAME AND SAL ALONG WITH ANNUAL SALARY IF THE ANNUAL
+SALARY IS MORE THAN 12000
+select ename as name, sal,sal*12 as annual_salary from emp where sal*12>12000;
+Done
+
+8. WAQTD EMPNO OF THE EMPLOYEES WHO ARE WORKING IN DEPT 30.
+select empno from emp where deptno=30;
+Done 
+
+9. WAQTD ENAME AND HIREDATE IF THEY ARE HIRED BEFORE 1981.
+select ename,hiredate from emp where hiredate<'1981-01-01';
+Done
+
+10. WAQTD DETAILS OF THE EMPLOYEES WORKING AS MANAGER.
+select * from emp where job='MANAGER';
+Done
+
+11. WAQTD NAME AND SALARY GIVEN TO AN EMPLOYEE IF EMPLOYEE EARNS A
+COMMISION OF RUPEES 1400.
+select ename as name, sal from emp where comm=1400;
+Done
+
+12. WAQTD DETAILS OF EMPLOYEES HAVING COMMISION MORE THAN SALARY.
+select * from emp where comm > sal;
+Done
+
+13. WAQTD EMPNO OF EMPLOYEES HIRED BEFORE THE YEAR 87.
+select empno from emp where hiredate<'1987-01-01';
+Done
+
+14. WAQTD DETAILS OF THE EMPLOYEES WORKING AS AN ANNALYST.
+select * from emp where job='ANALYST';
+Done 
+
+15. WAQTD DETAILS OF THE EMPS EARNINGMORE THAN 2000 RUPEES PER MONTH
+select * from emp where sal>2000;
+Done 

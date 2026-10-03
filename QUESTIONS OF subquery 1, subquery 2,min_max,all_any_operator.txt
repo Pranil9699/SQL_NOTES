@@ -1,0 +1,210 @@
+QUESTIONS BASED SUBQUERY CASE1
+1. WAQTD NAME OF THE EMPLOYEES WHO ARE EARNING MORE THAN ADAMS.
+select ename from emp where sal>(select sal from emp where ename='ADAMS');
+
+2. WAQTD NAME AND SALARY OF THE EMPLOYEES EARNING LESS THAN KING.
+select ename,sal from emp where sal<(select sal from emp where ename='KING');
+
+3. WAQTD NAME AND DEPTNO OF THE EMPLOYEE IF THEY ARE WORKING IN SAME DEPT AS
+JONES.
+select ename,deptno from emp where deptno in ( select deptno from emp where ename='JONES');
+
+4. WAQTD NAME AND JOB OF THE EMPLOYEES WORKING IN THE SAME DESIGNATION AS
+JAMES.
+select ename,job from emp where job in ( select job from emp where ename='JAMES');
+
+5. WAQTD EMPNO AND ENAME ALONG WITH ANNUAL SALARY OF ALL THE EMPLOYEES IF
+THEIR ANNUAL SALARY IS GREATER THAN THE WARD’S ANNUAL SALARY.
+select empno,ename,sal*12 as annual_sal from emp where (sal*12)>(select sal*12 from emp where ename='WARD');
+
+6. WAQTD NAME AND HIREDATE OF THE EMPLOYEES IF THEY ARE HIRED BEFORE SCOTT
+select ename,hiredate from emp where hiredate<(select hiredate from emp where ename='SCOTT');
+
+7. WAQTD NAME AND HIREDATE OF THE EMPLOYEES IF THEY HIRED AFTER PRESIDENT.
+select ename ,hiredate from emp where hiredate>(select hiredate from emp where job='PRESIDENT');
+
+8. WAQTD NAME AND SAL OF THE EMPLOYEES IF THEY ARE EARNING SAL LESS THAN THE
+EMPLOYEES WHOSE EMPNO IS 7839.
+select ename,sal from emp where sal<(select sal from emp where empno = 7839);
+
+9. WAQTD ALL THE DETAILS OF THE EMPLOYEES IF THE EMPLOYEES ARE HIRED BEFORE
+MILLER.
+select * from emp where hiredate<(select hiredate from emp where ename='MILLER');
+
+10. WAQTD ENAME AND EMPNO OF THE EMPLOYEES IF EMPLOYEES ARE EARNING MORE THAN
+ALLEN.
+select ename,empno from emp where sal>(select sal from emp where ename='ALLEN');
+
+
+11. WAQTD ENAME AND SALARY OF ALL THE EMPLOYEES WHO ARE EARNING MORE THAN
+MILLER AND LESS THAN ALLEN.
+select ename , sal from emp where sal>(select sal from emp where ename='MILLER') and sal<(select sal from emp where ename='ALLEN');
+
+12. WAQTD ALL THE DETAILS OF THE EMPLOYEES WORKING IN DEPTNO 20 AND WORKING IN
+THE SAME DESIGNATION AS SMITH.
+select * from emp where deptno=20 and job in(select job from emp where ename='SMITH');
+
+13. WAQTD ALL THE DETAILS OF THE EMPLOYEES WORKING AS MANAGER IN THE SAME DEPT
+AS TURNER.
+select * from emp where job='MANAGER' and deptno in (select deptno from emp where ename='TURNER');
+
+14. WAQTD NAME AND HIREDATE OF THE EMPLOYEES HIRED AFTER 1980 AND BEFORE KING.
+select ename,hiredate from emp where hiredate>'1980-12-31' and hiredate<(select hiredate from emp where ename='KING');
+
+15. WAQTD NAME AND SAL ALONG WITH THE ANNUAL SALARY FOR ALL THE EMPLOYEES
+WHOSE SALARY IS LESS THAN BLAKE AND MORE THAN 3500.
+select ename,sal,sal*12 as annual_sal from emp where sal<(select sal from emp where ename='BLAKE') and sal>3500;
+
+16. WAQTD ALL THE DETAILS OF THE EMPLOYEES WHO EARN MORE THAN SCOTT BUT LESS
+THAN THE KING.
+select * from emp where sal>(select sal from emp where ename='SCOTT') and sal<(select sal from emp where ename='KING');
+
+17. WAQTD NAME OF THE EMPLOYEES WHOSENAME START’S WITH ‘A’ AND WORKING IN THE
+SAME DEPT AS BLAKE.
+select ename from emp where ename like 'A%' and deptno in (select deptno from emp where ename='BLAKE');
+
+18. WAQTD NAME AND COMM IF EMPLOYEES EARN THE COMMISSION AND WORK IN THE
+SAME DESIGNATION AS SMITH.
+select ename,comm from emp where comm is not null and job in (select job from emp where ename='SMITH');
+
+
+19. WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK IN THE SAME DEPT AS TURNER.
+select * from emp where job='CLERK' and deptno in (select deptno from emp where ename='TURNER');
+
+
+20. WAQTD ENAME ,SAL,DESIGNATION OF THE EMPLOYEES WHOSE ANNUAL SALARY IS MORE
+THAN SMITH AND LESS THAN KING.
+select ename,sal,job from emp where sal*12>(select sal from emp where ename in ('SMITH') AND sal*12<(select sal from emp where ename in ('KING');
+
+
+
+
+
+ASSIGNMENT ON CASE 2 :
+1. WAQTD DNAME OF THE EMPLOYEES WHOSE
+NAME IS SMITH
+select dname from dept where deptno=(select deptno from emp where ename='SMITH');
+
+
+2. WAQTD DNAME AND LOC OF THE EMPLOYEE
+WHOSE ENAME IS KING
+select dname,loc from dept where deptno=(select deptno from emp where ename='KING');
+
+3. WAQTD LOC OF THE EMP WHOS EMPLOYEE
+NUMBER IS 7902
+select loc from dept where deptno=(select deptno from emp where empno=7902);
+
+4. WAQTD DNAME AND LOC ALONG WITH DEPTNO
+OF THE EMPLOYEE WHOSE NAME ENDS WITH 'R' .
+select * from dept where deptno in(select deptno from emp where ename like '%R');
+
+5. WAQTD DNAME OF THE EMPLOYEE WHOSE
+DESIGNATION IS PRESIDENT
+select dname from dept where deptno in (select deptno from emp where job='PRESIDENT');
+
+6. WAQTD NAMES OF THE EMPLOYEES WORKING IN
+ACCOUNTING DEPARTMENT
+select ename from emp where deptno=(select deptno from dept where dname='ACCOUNTING');
+
+7. WAQTD ENAME AND SALARIES OF THE
+EMPLOYEES WHO ARE WORKING IN THE
+LOCATION CHICAGO
+select ename,sal from emp where deptno=(select deptno from dept where loc='CHICAGO');
+
+8. WAQTD DETAILS OF THE EMPLOYEES WORKING
+IN SALES
+select * from emp where deptno=(select deptno from dept where dname='SALES');
+
+9. WAQTD DETAILS OF THE EMP ALONG WITH
+ANNUAL SALARY IF EMPLOYEES ARE WORKING
+IN NEW YORK
+select *,sal*12 from emp where deptno = (select deptno from dept where loc ='NEW YORK');
+
+
+10. WAQTD NAMES OF EMPLOYEES WORKING IN
+OPERATIONS DEPARTMENT
+
+select ename from emp where deptno=(select deptno from dept where dname='OPERATIONS');
+
+
+
+
+ASSINGNMENT ON SUBQUERY MAX & MIN
+1. WAQTD NAME OF THE EMPLOYEE EARNING MAXIMUM SALARY
+
+select ename from emp where sal in (select max(sal) from emp);
+
+2. WAQTD NAME OF THE EMPLOYEE EARNING MINIMUM SALARY
+select ename from emp where sal in (select min(sal) from emp);
+
+
+3. WAQTD NAME AND HIREDATE OF THE EMPLOYEE HIRED
+BEFORE ALL THE EMPLOYEES (FIRST EMP)
+ select ename,hiredate from emp where hiredate in (select min(hiredate) from emp);
+
+4. WAQTD NAME AND HIREDATE OF THE EMPLOYEES HIRED AT
+THE LAST
+select ename,hiredate from emp where hiredate in (select max(hiredate) from emp);
+
+5. WAQTD NAME, COMM OF THE EMPLOYEE WHO EARNS MIN
+COMISSION
+select ename,comm from emp where comm in (select min(comm) from emp where comm is not null);
+
+6. WAQTD NAME, SAL AND COMM OF THE EMPLOYEE EARNING
+MAXIMUM COMISSION
+select ename,sal,comm from emp where comm in ( select max(comm) from emp);
+
+7. WAQTD DETAILS OF THE EMPLOYEE WHO HAS
+GREATEST EMPNO
+select * from emp where empno in (select max(empno) from emp);
+
+8. WAQTD DETAILS OF THE EMPLOYEES HAVING THE LEAST
+HIREDATE
+select * from emp where hiredate in (select min(hiredate) from emp);
+
+9. WAQTD DETAILS OF THE EMPLOYEES EARNING LEAST ANNUAL
+SALARY
+select * from emp where sal*12 in(select min(sal*12) from emp);
+
+10.WAQTD NAME, ANNUAL SALARY OF THE EMPLOYEES IF THEIR
+ANNUAL SALARY IS MORE THAN ALL THE SALESMAN
+select ename,sal*12 from emp where sal*12 >all(select sal*12 from emp where job='SALESMAN');
+
+
+
+
+
+QUERIES ON ALL AND ANY
+1. WAQTD NAME OF THE EMPLOYEES EARNING SAL MORE
+THAN SALESMAN
+select ename from emp where sal>all(select sal from emp where job='SALESMAN');
+
+2. WAQTD SETAILS OF THE EMPLOYEES HIRED AFTER ALL THE
+CLERKS
+select * from emp where hiredate>all(select hiredate from emp where job='CLERK');
+
+3. WAQTD NAME AND SALARY FOR ALL THE EMPLOYEES IF
+THEY ARE EARNING LESS THAN ATLEAST A MANAGER.
+select ename,sal from emp where sal<any(select sal from emp where job='MANAGER');
+
+4. WAQTD NAME AND HIREDATE OF EMPLOYEES HIRED BEFORE
+ALL THE MANAGERS
+select ename,hiredate from emp where hiredate <all(select hiredate from emp where job='MANAGER');
+
+5. WAQTD NAME OF THE EMPLOYEES HIRED AFTER ALL THE
+MANAGERS AND EARNING SALARY MORE THAN ALL THE
+CLERKS
+select ename from emp where hiredate>all(select hiredate from emp where job='MANAGER') and sal>all(select sal from emp where job='CLERK');
+
+6. WAQTD DETAILS OF THE EMPLOYEES WORKING AS CLERK
+AND HIRED BEFORE ATLEAST A SALESMAN
+select * from emp where job ='CLERK' and hiredate <any (select hiredate from emp where job='SALESMAN');
+
+7. WAQTD EMP NAMES IF EMPLOYEES ARE HIRED AFTER ALL
+THE EMPLOYEES OF DEPT 10.
+select ename from emp where hiredate >all (select hiredate from emp where deptno=10);
+
+8. DISPLAY ALL THE EMPLOYEES WHO ARE EARN LESS THAN
+ANY OF THE SALESMAN? 
+
+select * from emp where sal<any(select sal from emp where job='SALESMAN');
